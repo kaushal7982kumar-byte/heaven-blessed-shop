@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Cart | Heaven Blessed Shop</title>
+<meta name="description" content="Review the items in your Heaven Blessed Shop cart before checkout.">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <a href="index.html" class="brand-logo"><span class="seal">HB</span> Heaven Blessed Shop</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="shop.html">Categories</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn-ghost-icon search-toggle" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <a class="btn-ghost-icon cart-btn" href="cart.html" aria-label="Cart"><i class="fa-solid fa-bag-shopping"></i><span class="cart-count">0</span></a>
+      <button class="nav-toggle" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+  <div class="search-panel">
+    <div class="container">
+      <form><input type="text" placeholder="Search products..." aria-label="Search products"></form>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span>Cart</div>
+    <h1>Your Cart</h1>
+  </div>
+</div>
+
+<section>
+  <div class="container" id="cart-page-wrap"></div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand-logo"><span class="seal">HB</span> Heaven Blessed Shop</div>
+        <p>Beautiful, thoughtfully chosen fashion, home and gifting essentials for everyday living — currently taking orders by email while we set up online payments.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+      </div>
+      <div class="footer-col">
+        <h4>Get in Touch</h4>
+        <a href="mailto:kaushalblessing633@gmail.com">kaushalblessing633@gmail.com</a>
+        <a href="contact.html">Contact Form</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="current-year"></span> Heaven Blessed Shop. All rights reserved.</span>
+      <span>Made for thoughtful everyday shopping in India.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/products.js"></script>
+<script src="js/main.js"></script>
+<script src="js/cart.js"></script>
+</body>
+</html>

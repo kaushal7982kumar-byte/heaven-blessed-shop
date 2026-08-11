@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | Heaven Blessed Shop</title>
+<meta name="description" content="Get in touch with Heaven Blessed Shop for order queries, product questions or bulk gifting requests.">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <a href="index.html" class="brand-logo"><span class="seal">HB</span> Heaven Blessed Shop</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="shop.html">Categories</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn-ghost-icon search-toggle" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <a class="btn-ghost-icon cart-btn" href="cart.html" aria-label="Cart"><i class="fa-solid fa-bag-shopping"></i><span class="cart-count">0</span></a>
+      <button class="nav-toggle" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+  <div class="search-panel">
+    <div class="container">
+      <form><input type="text" placeholder="Search products..." aria-label="Search products"></form>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span>Contact</div>
+    <h1>Contact Us</h1>
+  </div>
+</div>
+
+<section>
+  <div class="container contact-grid">
+    <div>
+      <span class="eyebrow">Reach Out</span>
+      <h2>We'd Love to Hear From You</h2>
+      <p>For order questions, product details or bulk gifting enquiries, email us directly — we personally reply to every message.</p>
+      <form id="contact-form">
+        <div class="form-group">
+          <label for="ct-name">Your Name</label>
+          <input type="text" id="ct-name" required>
+        </div>
+        <div class="form-group">
+          <label for="ct-email">Your Email</label>
+          <input type="email" id="ct-email" required>
+        </div>
+        <div class="form-group">
+          <label for="ct-message">Message</label>
+          <textarea id="ct-message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+        <p style="font-size:12.5px;color:#9a9082;margin-top:12px;">This form is a demo and isn't connected to a live inbox yet — please use the email address alongside for now.</p>
+      </form>
+    </div>
+    <div class="contact-info-card">
+      <div class="row">
+        <i class="fa-solid fa-envelope"></i>
+        <div>
+          <h3 style="margin-bottom:4px;font-size:16px;">Email</h3>
+          <p style="margin:0;"><a href="mailto:kaushalblessing633@gmail.com" style="color:var(--brand);font-weight:600;">kaushalblessing633@gmail.com</a></p>
+        </div>
+      </div>
+      <div class="row">
+        <i class="fa-solid fa-clock"></i>
+        <div>
+          <h3 style="margin-bottom:4px;font-size:16px;">Response Time</h3>
+          <p style="margin:0;">We aim to reply within 1–2 business days.</p>
+        </div>
+      </div>
+      <div class="row">
+        <i class="fa-solid fa-location-dot"></i>
+        <div>
+          <h3 style="margin-bottom:4px;font-size:16px;">Service Area</h3>
+          <p style="margin:0;">Currently serving customers across India.</p>
+        </div>
+      </div>
+      <div class="row">
+        <i class="fa-solid fa-circle-info"></i>
+        <div>
+          <h3 style="margin-bottom:4px;font-size:16px;">How Ordering Works</h3>
+          <p style="margin:0;">Place your order through the website — we'll confirm details and delivery charges by email before anything is finalised.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand-logo"><span class="seal">HB</span> Heaven Blessed Shop</div>
+        <p>Beautiful, thoughtfully chosen fashion, home and gifting essentials for everyday living — currently taking orders by email while we set up online payments.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+      </div>
+      <div class="footer-col">
+        <h4>Get in Touch</h4>
+        <a href="mailto:kaushalblessing633@gmail.com">kaushalblessing633@gmail.com</a>
+        <a href="contact.html">Contact Form</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="current-year"></span> Heaven Blessed Shop. All rights reserved.</span>
+      <span>Made for thoughtful everyday shopping in India.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/products.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.querySelector("#contact-form").addEventListener("submit", function(e){
+  e.preventDefault();
+  showToast("Thanks for reaching out! (Demo form — please email us directly for now.)", "fa-solid fa-envelope");
+  this.reset();
+});
+</script>
+</body>
+</html>

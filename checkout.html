@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout | Heaven Blessed Shop</title>
+<meta name="description" content="Complete your order details at Heaven Blessed Shop. Orders are confirmed by email — no online payment required yet.">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <a href="index.html" class="brand-logo"><span class="seal">HB</span> Heaven Blessed Shop</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="shop.html">Categories</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn-ghost-icon search-toggle" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <a class="btn-ghost-icon cart-btn" href="cart.html" aria-label="Cart"><i class="fa-solid fa-bag-shopping"></i><span class="cart-count">0</span></a>
+      <button class="nav-toggle" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+  <div class="search-panel">
+    <div class="container">
+      <form><input type="text" placeholder="Search products..." aria-label="Search products"></form>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><a href="cart.html">Cart</a><span class="sep">/</span>Checkout</div>
+    <h1>Checkout</h1>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+
+    <div class="empty-state" id="checkout-empty-state" style="display:none;">
+      <div class="icon"><i class="fa-solid fa-bag-shopping"></i></div>
+      <h3>Your cart is empty</h3>
+      <p>Add a few products before checking out.</p>
+      <a href="shop.html" class="btn btn-primary" style="margin-top:16px;">Browse Products</a>
+    </div>
+
+    <div class="checkout-layout" id="checkout-layout">
+      <div class="checkout-card" id="checkout-form-section">
+        <h3>Delivery Details</h3>
+        <p style="font-size:13.5px;color:var(--ink-soft);margin-bottom:24px;">Fields marked <span style="color:var(--danger);">*</span> are required. We'll email your order to our team and contact you to confirm delivery charges and payment.</p>
+
+        <form id="checkout-form" novalidate>
+          <div class="form-grid">
+            <div class="form-group full">
+              <label for="cf-name">Full Name <span class="req">*</span></label>
+              <input type="text" id="cf-name" required autocomplete="name">
+              <span class="err-msg">Please enter your full name.</span>
+            </div>
+            <div class="form-group">
+              <label for="cf-mobile">Mobile Number <span class="req">*</span></label>
+              <input type="tel" id="cf-mobile" required autocomplete="tel" placeholder="10-digit mobile number" maxlength="10">
+              <span class="err-msg">Please enter a valid 10-digit mobile number.</span>
+            </div>
+            <div class="form-group">
+              <label for="cf-email">Email Address <span class="req">*</span></label>
+              <input type="email" id="cf-email" required autocomplete="email">
+              <span class="err-msg">Please enter a valid email address.</span>
+            </div>
+            <div class="form-group full">
+              <label for="cf-address">Complete Address <span class="req">*</span></label>
+              <textarea id="cf-address" rows="3" required autocomplete="street-address"></textarea>
+              <span class="err-msg">Please enter your complete address.</span>
+            </div>
+            <div class="form-group">
+              <label for="cf-city">City <span class="req">*</span></label>
+              <input type="text" id="cf-city" required autocomplete="address-level2">
+              <span class="err-msg">Please enter your city.</span>
+            </div>
+            <div class="form-group">
+              <label for="cf-state">State <span class="req">*</span></label>
+              <input type="text" id="cf-state" required autocomplete="address-level1">
+              <span class="err-msg">Please enter your state.</span>
+            </div>
+            <div class="form-group">
+              <label for="cf-pincode">Pincode <span class="req">*</span></label>
+              <input type="text" id="cf-pincode" required inputmode="numeric" placeholder="6-digit pincode" maxlength="6">
+              <span class="err-msg">Please enter a valid 6-digit pincode.</span>
+            </div>
+            <div class="form-group full">
+              <label for="cf-notes">Order Notes (optional)</label>
+              <textarea id="cf-notes" rows="2" placeholder="Any delivery instructions or preferences"></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" id="checkout-submit-btn">Place Order</button>
+          <div class="form-status" id="checkout-form-status"></div>
+        </form>
+      </div>
+
+      <div class="summary-card" id="checkout-summary-section">
+        <h3>Order Summary</h3>
+        <div id="checkout-summary-items"></div>
+        <div class="summary-row"><span>Subtotal</span><span id="checkout-subtotal">₹0</span></div>
+        <div class="summary-row"><span>Delivery Charge</span><span>Calculated after order confirmation</span></div>
+        <div class="summary-row total"><span>Estimated Total</span><span id="checkout-grand-total">₹0</span></div>
+        <p class="summary-note">Payment will be discussed and confirmed separately after your order is reviewed. No online payment is collected right now.</p>
+      </div>
+
+      <div class="checkout-card" id="checkout-success-section" style="display:none; grid-column:1/-1;">
+        <div class="success-wrap" style="padding:20px;">
+          <div class="success-icon"><i class="fa-solid fa-check"></i></div>
+          <h2>Order Placed Successfully!</h2>
+          <p>Thank you for shopping with Heaven Blessed Shop. We have received your order details and will contact you shortly.</p>
+          <div class="order-id-chip">Order ID: <span id="success-order-id"></span></div>
+          <div class="payment-note">
+            <strong>Payment will be discussed / confirmed separately.</strong><br>
+            No online payment has been collected for this order.
+          </div>
+          <a href="shop.html" class="btn btn-primary">Continue Shopping</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand-logo"><span class="seal">HB</span> Heaven Blessed Shop</div>
+        <p>Beautiful, thoughtfully chosen fashion, home and gifting essentials for everyday living — currently taking orders by email while we set up online payments.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+      </div>
+      <div class="footer-col">
+        <h4>Get in Touch</h4>
+        <a href="mailto:kaushalblessing633@gmail.com">kaushalblessing633@gmail.com</a>
+        <a href="contact.html">Contact Form</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="current-year"></span> Heaven Blessed Shop. All rights reserved.</span>
+      <span>Made for thoughtful everyday shopping in India.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/products.js"></script>
+<script src="js/main.js"></script>
+<script src="js/checkout.js"></script>
+</body>
+</html>
